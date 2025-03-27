@@ -1,7 +1,7 @@
 {
-  "name": "daankh-npm-typescript-package",
-  "version": "1.1.1",
-  "description": "Template of NPM package built using TypeScript",
+  "name": "daankh-accessible-react-components",
+  "version": "0.0.1",
+  "description": "The package of accessible React components",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danjarosz/daankh-npm-typescript-package.git"
+    "url": "git+https://github.com/danjarosz/daankh-accessible-react-components.git"
   },
   "type": "module",
   "files": [
@@ -31,9 +31,9 @@
   "author": "Daniel Jarosz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danjarosz/daankh-npm-typescript-package/issues"
+    "url": "https://github.com/danjarosz/daankh-accessible-react-components/issues"
   },
-  "homepage": "https://github.com/danjarosz/daankh-npm-typescript-package#readme",
+  "homepage": "https://github.com/danjarosz/daankh-accessible-react-components#readme",
   "dependencies": {
     "typescript": "^5.8.2"
   },
