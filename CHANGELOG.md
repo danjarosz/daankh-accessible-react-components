@@ -1,5 +1,11 @@
 # daankh-npm-typescript-package
 
+## 0.0.2
+
+### Patch Changes
+
+- 401b4db: Install initial dependencies
+
 ## 1.1.1
 
 ### Patch Changes
