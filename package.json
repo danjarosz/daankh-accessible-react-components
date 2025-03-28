@@ -24,9 +24,12 @@
     "lib"
   ],
   "keywords": [
-    "npm-package",
-    "typescript",
-    "template"
+    "react",
+    "react components",
+    "ui",
+    "accessibility",
+    "accessible components",
+    "react accessible components"
   ],
   "author": "Daniel Jarosz",
   "license": "MIT",
