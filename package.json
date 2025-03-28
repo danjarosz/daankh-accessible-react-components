@@ -1,6 +1,6 @@
 {
   "name": "daankh-accessible-react-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "The package of accessible React components",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

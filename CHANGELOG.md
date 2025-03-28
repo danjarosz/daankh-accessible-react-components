@@ -1,5 +1,11 @@
 # daankh-npm-typescript-package
 
+## 0.0.4
+
+### Patch Changes
+
+- a4eac84: Update keywords
+
 ## 0.0.3
 
 ### Patch Changes
