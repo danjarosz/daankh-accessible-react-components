@@ -23,9 +23,9 @@ Under construction...
    ```
    npx changeset
    ```
-4. On the `main` branch, commit your changes
-5. On the `main` branch, run the `local-release` script
+5. On the `main` branch, commit your changes
+6. On the `main` branch, run the `local-release` script
    ```
    npm run local-release
    ```
-6. Congratulations! You're package is released!
+7. Congratulations! You're package is released!
