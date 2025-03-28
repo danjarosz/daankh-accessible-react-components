@@ -1,5 +1,11 @@
 # daankh-npm-typescript-package
 
+## 0.0.3
+
+### Patch Changes
+
+- a48a5fe: Update README.md
+
 ## 0.0.2
 
 ### Patch Changes
