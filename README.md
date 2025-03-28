@@ -1,51 +1,14 @@
-# Daankh NPM Typescript Package Template
+# Daankh Accessible React Components
 
-Template for creating typescript-based npm packages.
+A package of accessible React components.
+The package under construction. Do not use it!
+It will be ready, when version is set to `1.0.0`
 
-## Features
+## Documentation
 
-- Configured environment for creating and publishing NPM package
-- Typescript support
-- Prettier configuration for keep consistency in your code styling
-- Vitest installation for writing tests of your modules
+Under construction...
 
-## How to use?
-
-Clone the repository and write your Typescript code in `src` directory. Export everything you want in `src/index.ts`
-file.
-
-## How to set up a package before start coding?
-
-### package.json
-
-Edit `package.json`:
-
-```
-{
-    "name": <YOUR-PACKAGE-NAME>,
-    "version": <INITIAL-PACKAGE-VERSION>,
-    "description": <YOUR-PACKAGE-DESCRIPTION>,
-    "repository": {
-        "url": <URL-TO-YOUR-REPOSITORY>
-    },
-    "author": <YOUR-NAME>,
-    "bugs": {
-        "url": "<YOU-WHERE-REPORT-BUGS>"
-    },
-    "homepage": "<URL-TO-PACKAGE-HOMEPAGE>",
-}
-```
-
-## Example files
-
-Remove example files:
-
-- `src/math.spec.ts`
-- `src/math.ts`
-
-Then remove unnecessary content from `src/index.ts`.
-
-## How to deploy?
+## Deployment
 
 1. Ensure you're logged in your NPM account
    ```
@@ -64,7 +27,4 @@ Then remove unnecessary content from `src/index.ts`.
    ```
    npm run local-release
    ```
-6. Congratulations! You're package is released! You can visit a page of your package:
-   ```
-   http://npmjs.com/package/<YOUR-PACKAGE-NAME>
-   ```
+6. Congratulations! You're package is released!
