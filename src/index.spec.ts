@@ -1,4 +1,4 @@
-import lib from './index.js';
+import * as lib from './index.js';
 import { test, describe, expect } from 'vitest';
 
 describe('lib', () => {

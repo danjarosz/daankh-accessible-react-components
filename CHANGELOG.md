@@ -1,5 +1,23 @@
 # daankh-npm-typescript-package
 
+## 0.0.4
+
+### Patch Changes
+
+- a4eac84: Update keywords
+
+## 0.0.3
+
+### Patch Changes
+
+- a48a5fe: Update README.md
+
+## 0.0.2
+
+### Patch Changes
+
+- 401b4db: Install initial dependencies
+
 ## 1.1.1
 
 ### Patch Changes
