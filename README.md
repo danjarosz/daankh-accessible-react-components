@@ -4,6 +4,10 @@ A package of accessible React components.
 The package under construction. Do not use it!
 It will be ready, when version is set to `1.0.0`
 
+## Documentation
+
+Under construction...
+
 ## Deployment
 
 1. Ensure you're logged in your NPM account
