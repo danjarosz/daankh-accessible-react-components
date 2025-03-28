@@ -8,7 +8,7 @@ It will be ready, when version is set to `1.0.0`
 
 Under construction...
 
-## Deployment
+## How to deploy?
 
 1. Ensure you're logged in your NPM account
    ```
@@ -18,12 +18,13 @@ Under construction...
    ```
    npm login
    ```
-3. Add a changeset
+3. Switch to the `main` branch. Ensure you pushed all the changes from `dev` into `main` branch.
+4. On the `main` branch, add a changeset
    ```
    npx changeset
    ```
-4. Commit your changes
-5. Run the `local-release` script
+4. On the `main` branch, commit your changes
+5. On the `main` branch, run the `local-release` script
    ```
    npm run local-release
    ```
