@@ -25,19 +25,19 @@ Under construction...
    ```
    npx changeset
    ```
-4. On the `main` branch, commit your changes
-5. On the `main` branch, run the `local-release` script
+5. On the `main` branch, commit your changes
+6. On the `main` branch, run the `local-release` script
    ```
    npm run local-release
    ```
-6. Congratulations! You're package is released! You can visit a page of your package:
+7. Congratulations! You're package is released! You can visit a page of your package:
    ```
    http://npmjs.com/package/<YOUR-PACKAGE-NAME>
    ```
-7. Commit everything on the `main` branch
-8. Switch to the `dev` branch.
-9. Update `dev` with the current changes from `main`.
-10. Repeat the development process.
+8. Commit everything on the `main` branch
+9. Switch to the `dev` branch.
+10. Update `dev` with the current changes from `main`.
+11. Repeat the development process.
 
 ## Licence
 
