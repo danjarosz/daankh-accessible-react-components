@@ -2,21 +2,19 @@ import React from 'react';
 import useAccessibleButton from '../../hooks/useAccessibleButton.js';
 
 export interface IButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  disabled?: boolean;
   description?: string;
 }
 
-export default function Button({ children, description }: IButtonProps) {
+export default function Button(props: IButtonProps) {
+  const { children } = props;
   const accessibilityProps = useAccessibleButton({
-    description,
+    disabled: props.disabled,
+    description: props.description,
   });
-  const props: IButtonProps = {};
-
-  if (description) {
-    props['description'] = description;
-  }
 
   return (
-    <button description={description} {...accessibilityProps} {...props}>
+    <button {...props} {...accessibilityProps}>
       {children}
     </button>
   );
