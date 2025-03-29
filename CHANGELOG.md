@@ -1,5 +1,12 @@
 # daankh-npm-typescript-package
 
+## 0.0.6
+
+### Patch Changes
+
+- db0c267: Update README.md, licences and packages
+- b108225: Install initial dependencies
+
 ## 0.0.5
 
 ### Patch Changes
