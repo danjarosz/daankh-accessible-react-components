@@ -1,14 +1,16 @@
 # Daankh Accessible React Components
 
 A package of accessible React components.
-The package under construction. Do not use it!
-It will be ready, when version is set to `1.0.0`
+
+**The package under construction. Do not use it!**
+
+**It will be ready, when I release version of `1.0.0`**
 
 ## Documentation
 
 Under construction...
 
-## How to deploy?
+## Deployment
 
 1. Ensure you're logged in your NPM account
    ```
@@ -28,4 +30,28 @@ Under construction...
    ```
    npm run local-release
    ```
-7. Congratulations! You're package is released!
+7. Congratulations! You're package is released! You can visit a page of your package:
+   ```
+   http://npmjs.com/package/<YOUR-PACKAGE-NAME>
+   ```
+8. Commit everything on the `main` branch
+9. Switch to the `dev` branch.
+10. Update `dev` with the current changes from `main`.
+11. Repeat the development process.
+
+## Licence
+
+This package is released under the MIT licence, but also uses some external packages, thar are released under their own
+licences.
+
+The screenshots of licences of each package that I used in this project are located in `licence_screenshots` directory.
+
+A list of packages:
+
+- [React](https://www.npmjs.com/package/react)
+- [Typescript](https://www.npmjs.com/package/typescript)
+- [@arethetypeswrong/cli](https://www.npmjs.com/package/@arethetypeswrong/cli)
+- [@changesets/cli](https://www.npmjs.com/package/@changesets/cli)
+- [Prettier](https://www.npmjs.com/package/prettier)
+- [Vitest](http://npmjs.com/package/vitest)
+- [Storybook](https://www.npmjs.com/package/storybook)
