@@ -1,5 +1,12 @@
 # daankh-npm-typescript-package
 
+## 0.0.5
+
+### Patch Changes
+
+- 9ac375b: Set initial Button component and useAccessibleButton for test purposes
+- 0602b23: Install initial dependencies
+
 ## 0.0.4
 
 ### Patch Changes
