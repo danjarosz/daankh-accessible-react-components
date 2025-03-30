@@ -20,24 +20,27 @@ Under construction...
    ```
    npm login
    ```
-3. Switch to the `main` branch. Ensure you pushed all the changes from `dev` into `main` branch.
-4. On the `main` branch, add a changeset
+3. Remember to do publishing on `main`.
+4. On the d`dev` branch use the command `npm run format`. Then, push all the changes to the `main` branch.
+5. Switch to `main` branch.
+6. On the `main` branch, add a changeset
    ```
    npx changeset
    ```
-5. On the `main` branch, commit your changes
-6. On the `main` branch, run the `local-release` script
+7. On the `main` branch, commit your changes.
+8. On the `main` branch, run the `local-release` script
    ```
    npm run local-release
    ```
-7. Congratulations! You're package is released! You can visit a page of your package:
-   ```
-   http://npmjs.com/package/<YOUR-PACKAGE-NAME>
-   ```
-8. Commit everything on the `main` branch
-9. Switch to the `dev` branch.
-10. Update `dev` with the current changes from `main`.
-11. Repeat the development process.
+9. Commit and push all the changes.
+10. Congratulations! You're package is released! You can visit a page of your package:
+
+```
+http://npmjs.com/package/<YOUR-PACKAGE-NAME>
+```
+11. Switch to the `dev` branch.
+12. Update `dev` with the current changes from `main`.
+13. Repeat the development process.
 
 ## Licence
 
