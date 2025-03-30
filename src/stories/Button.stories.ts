@@ -29,5 +29,6 @@ export const Accessible: Story = {
     children: 'Text Button',
     description: 'This is a description',
     disabled: false,
+    label: 'Button label',
   },
 };
