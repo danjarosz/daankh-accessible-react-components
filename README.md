@@ -21,7 +21,7 @@ Under construction...
    npm login
    ```
 3. Remember to do publishing on `main`.
-4. On the d`dev` branch use the command `npm run format`. Then, push all the changes to the `main` branch.
+4. On the `dev` branch use the command `npm run format`. Then, push all the changes to the `main` branch.
 5. Switch to `main` branch.
 6. On the `main` branch, add a changeset
    ```
@@ -36,8 +36,9 @@ Under construction...
 10. Congratulations! You're package is released! You can visit a page of your package:
 
 ```
-http://npmjs.com/package/<YOUR-PACKAGE-NAME>
+https://www.npmjs.com/package/daankh-npm-typescript-package
 ```
+
 11. Switch to the `dev` branch.
 12. Update `dev` with the current changes from `main`.
 13. Repeat the development process.
