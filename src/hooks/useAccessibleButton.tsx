@@ -1,17 +1,25 @@
+import { useEffect, useState } from 'react';
+
 export interface Props {
   disabled?: boolean;
 }
 
 export interface IUseAccessibleButton {
-  'aria-disabled': 'true' | 'false';
+  'aria-disabled': 'true' | 'false' | undefined;
 }
 
 export default function useAccessibleButton({
   disabled = false,
 }: Props): IUseAccessibleButton {
-  const result: IUseAccessibleButton = {
-    'aria-disabled': disabled ? 'true' : 'false',
-  };
+  const [ariaDisabled, setAriaDisabled] = useState<
+    'true' | 'false' | undefined
+  >(undefined);
 
-  return result;
+  useEffect(() => {
+    setAriaDisabled(disabled ? 'true' : 'false');
+  }, [disabled]);
+
+  return {
+    'aria-disabled': ariaDisabled,
+  };
 }

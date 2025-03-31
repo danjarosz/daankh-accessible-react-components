@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="darc"
+                 name="Daankh Accessible React Components"
+                 start-page="starter-topic.md">
+
+    <toc-element topic="starter-topic.md"/>
+    <toc-element topic="Documentation.md">
+        <toc-element topic="Installation.md">
+        </toc-element>
+        <toc-element topic="hooks.md"/>
+        <toc-element topic="Components.md"/>
+    </toc-element>
+</instance-profile>
