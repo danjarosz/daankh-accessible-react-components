@@ -6,6 +6,13 @@ A package of accessible React components.
 
 **It will be ready, when I release version of `1.0.0`**
 
+This packages includes a set of React components and React Hooks, that helps to implement accessible applications.
+
+The whole job is based on the given documents:
+
+- [Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
+- [ARIA in HTML](https://w3c.github.io/html-aria/)
+
 ## Documentation
 
 Under construction...
