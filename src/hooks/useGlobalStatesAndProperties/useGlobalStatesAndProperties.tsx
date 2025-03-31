@@ -25,8 +25,6 @@ export default function useGlobalStatesAndProperties({
     }
   }, [atomic]);
 
-  // TODO Update docs
-
   return {
     'aria-atomic': ariaAtomic,
   };
