@@ -10,7 +10,9 @@
     <toc-element topic="Documentation.md">
         <toc-element topic="Installation.md">
         </toc-element>
-        <toc-element topic="hooks.md"/>
+        <toc-element topic="hooks.md">
+            <toc-element topic="useGlobalStatesAndProperties.md"/>
+        </toc-element>
         <toc-element topic="Components.md"/>
     </toc-element>
 </instance-profile>
