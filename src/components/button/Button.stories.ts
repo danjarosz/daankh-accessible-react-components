@@ -24,5 +24,6 @@ export const Accessible: Story = {
   args: {
     children: 'Test Button',
     disabled: false,
+    atomic: undefined,
   },
 };
