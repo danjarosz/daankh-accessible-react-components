@@ -1,5 +1,12 @@
 # daankh-npm-typescript-package
 
+## 0.0.7
+
+### Patch Changes
+
+- bb746d0: Cleanup
+- cf2a98b: Install initial dependencies
+
 ## 0.0.6
 
 ### Patch Changes
