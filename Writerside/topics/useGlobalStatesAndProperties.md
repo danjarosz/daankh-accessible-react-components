@@ -24,7 +24,7 @@ IUseGlobalStatesAndPropertiesProps {
 ## Props description
 
 - `atomic?: boolean;` - if `atomic` is `boolean`, it will force include `aria-atomic` with a value of `true` or `false`
-into HTML tag. If it is not provided or it is `undefined`, `aria-atomic` is omitted in HTML.
+  into HTML tag. If it is not provided or it is `undefined`, `aria-atomic` is omitted in HTML.
 
 ## Result Schema
 
@@ -49,7 +49,6 @@ Put received props to the output of your component:
 <code-block>
 return &lt;button {...accessibilityProps}&gt;Login&lt;/button&gt;
 </code-block>
-
 
 ## Resources:
 
