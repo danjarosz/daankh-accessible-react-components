@@ -18,6 +18,9 @@ them.
 <code-block>
 IUseGlobalStatesAndPropertiesProps {
   atomic?: boolean;
+  busy?: boolean;
+  controls?: string | string[]; // list of ids
+  current?: page' | 'step' | 'location' | 'date' | 'time' | string | boolean;
 }
 </code-block>
 
