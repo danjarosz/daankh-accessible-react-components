@@ -54,3 +54,4 @@ return &lt;button {...accessibilityProps}&gt;Login&lt;/button&gt;
 
 - [Global state and properties description](https://www.w3.org/TR/wai-aria-1.2/#global_states)
 - [aria-atomic](https://www.w3.org/TR/wai-aria-1.2/#aria-atomic)
+- [aria-busy](https://www.w3.org/TR/wai-aria-1.2/#aria-busy)

@@ -7,7 +7,7 @@ describe('useGlobalStatesAndProperties', () => {
     expect(useGlobalStatesAndProperties).toBeDefined();
   });
 
-  describe('atomic', () => {
+  describe('aria-atomic', () => {
     test('GIVEN THAT atomic = true WHEN useGlobalStatesAndProperties returns value THEN aria-atomic = true', () => {
       const { result } = renderHook(() =>
         useGlobalStatesAndProperties({
@@ -38,6 +38,40 @@ describe('useGlobalStatesAndProperties', () => {
     test('GIVEN THAT atomic is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-atomic = undefined', () => {
       const { result } = renderHook(() => useGlobalStatesAndProperties({}));
       expect(result.current['aria-atomic']).toBe(undefined);
+    });
+  });
+
+  describe('aria-busy', () => {
+    test('GIVEN THAT budy = true WHEN useGlobalStatesAndProperties returns value THEN aria-busy = true', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          busy: true,
+        }),
+      );
+      expect(result.current['aria-busy']).toBe(true);
+    });
+
+    test('GIVEN THAT busy = false WHEN useGlobalStatesAndProperties returns value THEN aria-busy = false', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          busy: false,
+        }),
+      );
+      expect(result.current['aria-busy']).toBe(false);
+    });
+
+    test('GIVEN THAT busy = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-busy = undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          busy: undefined,
+        }),
+      );
+      expect(result.current['aria-busy']).toBe(undefined);
+    });
+
+    test('GIVEN THAT busy is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-busy = undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-busy']).toBe(undefined);
     });
   });
 });
