@@ -23,24 +23,35 @@ IUseGlobalStatesAndPropertiesProps {
 
 ## Props description
 
-- `atomic?: boolean;` - if `atomic` is `boolean`, it will force include `aria-atomic` with a value of `true` or `false`
+- `atomic?: boolean` - if `atomic` is `boolean`, it will force include `aria-atomic` with a value of `true` or `false`
   into HTML tag. If it is not provided or it is `undefined`, `aria-atomic` is omitted in HTML.
+- `busy?: boolean` - if `busy` is `boolean`, it will force include `aria-busy` with a value of `true` or `false`
+  into HTML tag. If it is not provided or it is `undefined`, `aria-atomic` is omitted in HTML.
+- `controls?: string | string[]` - list of ids, what elements are controlled by this HTML element. It returns
+  space-seperated list of ids.
+- `current?: 'page' | 'step' | 'location' | 'date' | 'time' | string | boolean` - it is strongly recommended to use
+  these values `'page' | 'step' | 'location' | 'date' | 'time'`, because they have semantic meaning.
+- ...
+- ...
 
 ## Result Schema
 
 <code-block>
 interface IUseGlobalStatesAndProperties {
   'aria-atomic': boolean | undefined;
+  'aria-busy': boolean | undefined;
+  'aria-controls': string | undefined;
+  'aria-current': "page" | "location" | "location" | "date" | "time" | true | undefined;
 }
 </code-block>
 
 ## Usage
 
-Run hook in the component:
+Run hook in the component with wanted values:
 
 <code-block>
 const accessibilityProps = useGlobalStatesAndProperties({
-    atomic?: boolean
+    atomic: true
 })
 </code-block>
 
@@ -61,3 +72,4 @@ In most cases, if some of specified `aria=*` attributes should have a default va
 - [aria-atomic](https://www.w3.org/TR/wai-aria-1.2/#aria-atomic)
 - [aria-busy](https://www.w3.org/TR/wai-aria-1.2/#aria-busy)
 - [aria-controls](https://www.w3.org/TR/wai-aria-1.2/#aria-controls)
+- [aria-current](https://www.w3.org/TR/wai-aria-1.2/#aria-current)

@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react';
 
+const ARIA_CURRENT_TOKENS = ['page', 'step', 'location', 'date', 'time'];
+
+type TAriaCurrentToken = 'page' | 'step' | 'location' | 'date' | 'time';
+
 export interface IUseGlobalStatesAndProperties {
   'aria-atomic': boolean | undefined;
   'aria-busy': boolean | undefined;
   'aria-controls': string | undefined;
+  'aria-current': TAriaCurrentToken | true | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
   atomic?: boolean;
   busy?: boolean;
   controls?: string | string[]; // list of ids
+  current?: TAriaCurrentToken | string | boolean;
 }
 
 /**
@@ -20,12 +26,16 @@ export default function useGlobalStatesAndProperties({
   atomic,
   busy,
   controls,
+  current,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
   const [ariaControls, setAriaControls] = useState<string | undefined>(
     undefined,
   );
+  const [ariaCurrent, setAriaCurrent] = useState<
+    TAriaCurrentToken | true | undefined
+  >(undefined);
 
   // aria-atomic
   useEffect(() => {
@@ -60,10 +70,28 @@ export default function useGlobalStatesAndProperties({
     }
   }, [controls]);
 
+  // aria-current
+  useEffect(() => {
+    if (typeof current === 'undefined') {
+      setAriaCurrent(undefined);
+    } else if (typeof current === 'boolean') {
+      setAriaCurrent(current || undefined);
+    } else {
+      if (ARIA_CURRENT_TOKENS.includes(current)) {
+        setAriaCurrent(current as TAriaCurrentToken);
+      } else if (current.length) {
+        setAriaCurrent(true);
+      } else {
+        setAriaCurrent(undefined);
+      }
+    }
+  }, [current]);
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
     'aria-busy': ariaBusy,
     'aria-controls': ariaControls,
+    'aria-current': ariaCurrent,
   };
 }

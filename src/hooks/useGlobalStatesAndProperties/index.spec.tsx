@@ -135,4 +135,101 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-controls']).toBe(undefined);
     });
   });
+
+  describe('aria-current', () => {
+    test('GIVEN THAT current="page" WHEN useGlobalStatesAndProperties returns value THEN aria-current="page"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: 'page',
+        }),
+      );
+      expect(result.current['aria-current']).toBe('page');
+    });
+
+    test('GIVEN THAT current="step" WHEN useGlobalStatesAndProperties returns value THEN aria-current="step"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: 'step',
+        }),
+      );
+      expect(result.current['aria-current']).toBe('step');
+    });
+
+    test('GIVEN THAT current="location" WHEN useGlobalStatesAndProperties returns value THEN aria-current="location"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: 'location',
+        }),
+      );
+      expect(result.current['aria-current']).toBe('location');
+    });
+
+    test('GIVEN THAT current="date" WHEN useGlobalStatesAndProperties returns value THEN aria-current="date"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: 'date',
+        }),
+      );
+      expect(result.current['aria-current']).toBe('date');
+    });
+
+    test('GIVEN THAT current="time" WHEN useGlobalStatesAndProperties returns value THEN aria-current="time"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: 'time',
+        }),
+      );
+      expect(result.current['aria-current']).toBe('time');
+    });
+
+    test('GIVEN THAT current is different than acceptable token WHEN useGlobalStatesAndProperties returns value THEN aria-current="true"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: 'something',
+        }),
+      );
+      expect(result.current['aria-current']).toBe(true);
+    });
+
+    test('GIVEN THAT current=true" WHEN useGlobalStatesAndProperties returns value THEN aria-current="true"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: true,
+        }),
+      );
+      expect(result.current['aria-current']).toBe(true);
+    });
+
+    test('GIVEN THAT current=false WHEN useGlobalStatesAndProperties returns value THEN aria-current=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: false,
+        }),
+      );
+      expect(result.current['aria-current']).toBe(undefined);
+    });
+
+    test('GIVEN THAT current="" WHEN useGlobalStatesAndProperties returns value THEN aria-current=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: '',
+        }),
+      );
+      expect(result.current['aria-current']).toBe(undefined);
+    });
+
+    test('GIVEN THAT current=undefined WHEN useGlobalStatesAndProperties returns value THEN aria-current=undefined"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          current: undefined,
+        }),
+      );
+      expect(result.current['aria-current']).toBe(undefined);
+    });
+
+    test('GIVEN THAT current is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-current=undefined"', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-current']).toBe(undefined);
+    });
+  });
 });

@@ -23,7 +23,9 @@ type Story = StoryObj<typeof meta>;
 export const Accessible: Story = {
   args: {
     children: 'Test Button',
-    disabled: false,
-    atomic: undefined,
+    atomic: true,
+    busy: true,
+    controls: ['1', '2'],
+    current: 'location',
   },
 };
