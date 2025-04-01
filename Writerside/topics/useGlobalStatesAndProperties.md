@@ -50,8 +50,14 @@ Put received props to the output of your component:
 return &lt;button {...accessibilityProps}&gt;Login&lt;/button&gt;
 </code-block>
 
+## Recommendations
+
+In most cases, if some of specified `aria=*` attributes should have a default value, the value should be set to
+`undefined`, to not include this `aria-*` into DOM. To ensure that, check out W3C Aria Documentation.
+
 ## Resources:
 
 - [Global state and properties description](https://www.w3.org/TR/wai-aria-1.2/#global_states)
 - [aria-atomic](https://www.w3.org/TR/wai-aria-1.2/#aria-atomic)
 - [aria-busy](https://www.w3.org/TR/wai-aria-1.2/#aria-busy)
+- [aria-controls](https://www.w3.org/TR/wai-aria-1.2/#aria-controls)

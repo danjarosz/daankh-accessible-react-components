@@ -74,4 +74,65 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-busy']).toBe(undefined);
     });
   });
+
+  describe('aria-controls', () => {
+    test('GIVEN THAT controls = "foo" WHEN useGlobalStatesAndProperties returns value THEN aria-controls="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          controls: 'foo',
+        }),
+      );
+      expect(result.current['aria-controls']).toBe('foo');
+    });
+
+    test('GIVEN THAT controls = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-controls="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          controls: 'foo bar',
+        }),
+      );
+      expect(result.current['aria-controls']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT controls = ["foo"] WHEN useGlobalStatesAndProperties returns value THEN aria-controls="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          controls: ['foo'],
+        }),
+      );
+      expect(result.current['aria-controls']).toBe('foo');
+    });
+
+    test('GIVEN THAT controls = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-controls="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          controls: ['foo', 'bar'],
+        }),
+      );
+      expect(result.current['aria-controls']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT controls = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-controls=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          controls: undefined,
+        }),
+      );
+      expect(result.current['aria-controls']).toBe(undefined);
+    });
+
+    test('GIVEN THAT controls is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-controls=undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-controls']).toBe(undefined);
+    });
+
+    test('GIVEN THAT controls is an empty array WHEN useGlobalStatesAndProperties returns value THEN aria-controls=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          controls: [],
+        }),
+      );
+      expect(result.current['aria-controls']).toBe(undefined);
+    });
+  });
 });
