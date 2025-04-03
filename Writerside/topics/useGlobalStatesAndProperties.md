@@ -79,3 +79,4 @@ In most cases, if some of specified `aria=*` attributes should have a default va
 - [aria-busy](https://www.w3.org/TR/wai-aria-1.2/#aria-busy)
 - [aria-controls](https://www.w3.org/TR/wai-aria-1.2/#aria-controls)
 - [aria-current](https://www.w3.org/TR/wai-aria-1.2/#aria-current)
+- [aria-describedby](https://www.w3.org/TR/wai-aria-1.2/#aria-controls)
