@@ -9,6 +9,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-busy': boolean | undefined;
   'aria-controls': string | undefined;
   'aria-current': TAriaCurrentToken | true | undefined;
+  'aria-describedby': string | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -16,6 +17,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   busy?: boolean;
   controls?: string | string[]; // list of ids
   current?: TAriaCurrentToken | string | boolean;
+  describedby?: string | string[]; // list of ids
 }
 
 /**
@@ -27,6 +29,7 @@ export default function useGlobalStatesAndProperties({
   busy,
   controls,
   current,
+  describedby,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -36,6 +39,9 @@ export default function useGlobalStatesAndProperties({
   const [ariaCurrent, setAriaCurrent] = useState<
     TAriaCurrentToken | true | undefined
   >(undefined);
+  const [ariaDescribedBy, setAriaDescribedBy] = useState<string | undefined>(
+    undefined,
+  );
 
   // aria-atomic
   useEffect(() => {
@@ -87,11 +93,27 @@ export default function useGlobalStatesAndProperties({
     }
   }, [current]);
 
+  // aria-describedby
+  useEffect(() => {
+    if (typeof describedby === 'string') {
+      setAriaDescribedBy(describedby);
+    } else if (typeof describedby === 'object' && Array.isArray(describedby)) {
+      if (!describedby.length) {
+        setAriaDescribedBy(undefined);
+        return;
+      }
+      setAriaDescribedBy(describedby.join(' '));
+    } else {
+      setAriaDescribedBy(undefined);
+    }
+  }, [describedby]);
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
     'aria-busy': ariaBusy,
     'aria-controls': ariaControls,
     'aria-current': ariaCurrent,
+    'aria-describedby': ariaDescribedBy,
   };
 }

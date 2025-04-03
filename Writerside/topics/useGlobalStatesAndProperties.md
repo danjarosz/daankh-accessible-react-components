@@ -20,7 +20,8 @@ IUseGlobalStatesAndPropertiesProps {
   atomic?: boolean;
   busy?: boolean;
   controls?: string | string[]; // list of ids
-  current?: page' | 'step' | 'location' | 'date' | 'time' | string | boolean;
+  current?: 'page' | 'step' | 'location' | 'date' | 'time' | string | boolean;
+  describedby?: string | string[]; // list of ids
 }
 </code-block>
 
@@ -34,7 +35,8 @@ IUseGlobalStatesAndPropertiesProps {
   space-seperated list of ids.
 - `current?: 'page' | 'step' | 'location' | 'date' | 'time' | string | boolean` - it is strongly recommended to use
   these values `'page' | 'step' | 'location' | 'date' | 'time'`, because they have semantic meaning.
-- ...
+- `describedby?: string | string[]` - list of ids, what elements describes given element. E.x., useful if the
+  description of the element is located in a tooltip.
 - ...
 
 ## Result Schema
@@ -45,6 +47,7 @@ interface IUseGlobalStatesAndProperties {
   'aria-busy': boolean | undefined;
   'aria-controls': string | undefined;
   'aria-current': "page" | "location" | "location" | "date" | "time" | true | undefined;
+  'aria-describedby': string | undefined;
 }
 </code-block>
 

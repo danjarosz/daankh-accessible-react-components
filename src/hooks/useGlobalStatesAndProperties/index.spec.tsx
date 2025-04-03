@@ -232,4 +232,65 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-current']).toBe(undefined);
     });
   });
+
+  describe('aria-describedby', () => {
+    test('GIVEN THAT described = "foo" WHEN useGlobalStatesAndProperties returns value THEN aria-describedby="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          describedby: 'foo',
+        }),
+      );
+      expect(result.current['aria-describedby']).toBe('foo');
+    });
+
+    test('GIVEN THAT describedby = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-describedby="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          describedby: 'foo bar',
+        }),
+      );
+      expect(result.current['aria-describedby']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT describedby = ["foo"] WHEN useGlobalStatesAndProperties returns value THEN aria-describedby="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          describedby: ['foo'],
+        }),
+      );
+      expect(result.current['aria-describedby']).toBe('foo');
+    });
+
+    test('GIVEN THAT describedby = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-describedby="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          describedby: ['foo', 'bar'],
+        }),
+      );
+      expect(result.current['aria-describedby']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT describedby = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-describedby=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          describedby: undefined,
+        }),
+      );
+      expect(result.current['aria-describedby']).toBe(undefined);
+    });
+
+    test('GIVEN THAT describedby is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-describedby=undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-describedby']).toBe(undefined);
+    });
+
+    test('GIVEN THAT describedby is an empty array WHEN useGlobalStatesAndProperties returns value THEN aria-describedby=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          describedby: [],
+        }),
+      );
+      expect(result.current['aria-describedby']).toBe(undefined);
+    });
+  });
 });

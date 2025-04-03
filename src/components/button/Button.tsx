@@ -19,6 +19,7 @@ export default function Button(props: IButtonProps) {
     busy,
     controls,
     current,
+    describedBy: props.describedBy,
   });
   const accessibilityProps = useAccessibleButton({
     disabled,
