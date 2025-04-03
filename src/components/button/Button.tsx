@@ -11,15 +11,24 @@ export interface IButtonProps extends IBase {
 }
 
 export default function Button(props: IButtonProps) {
-  const { atomic, busy, controls, current, ...restProps } = props;
-  const { disabled, children } = restProps;
+  const {
+    atomic,
+    busy,
+    controls,
+    current,
+    describedby,
+    details,
+    ...nonAccessibilityProps
+  } = props;
+  const { disabled, children } = nonAccessibilityProps;
 
   const globalAccessibilityProps = useGlobalStatesAndProperties({
     atomic,
     busy,
     controls,
     current,
-    describedBy: props.describedBy,
+    describedby,
+    details,
   });
   const accessibilityProps = useAccessibleButton({
     disabled,
@@ -29,7 +38,7 @@ export default function Button(props: IButtonProps) {
     <button
       {...globalAccessibilityProps}
       {...accessibilityProps}
-      {...restProps}
+      {...nonAccessibilityProps}
     >
       {children}
     </button>

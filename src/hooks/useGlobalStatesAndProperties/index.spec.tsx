@@ -293,4 +293,65 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-describedby']).toBe(undefined);
     });
   });
+
+  describe('aria-details', () => {
+    test('GIVEN THAT details = "foo" WHEN useGlobalStatesAndProperties returns value THEN aria-details="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          details: 'foo',
+        }),
+      );
+      expect(result.current['aria-details']).toBe('foo');
+    });
+
+    test('GIVEN THAT details = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-details="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          details: 'foo bar',
+        }),
+      );
+      expect(result.current['aria-details']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT details = ["foo"] WHEN useGlobalStatesAndProperties returns value THEN aria-details="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          details: ['foo'],
+        }),
+      );
+      expect(result.current['aria-details']).toBe('foo');
+    });
+
+    test('GIVEN THAT details = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-details="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          details: ['foo', 'bar'],
+        }),
+      );
+      expect(result.current['aria-details']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT details = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-details=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          details: undefined,
+        }),
+      );
+      expect(result.current['aria-details']).toBe(undefined);
+    });
+
+    test('GIVEN THAT details is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-details=undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-details']).toBe(undefined);
+    });
+
+    test('GIVEN THAT details is an empty array WHEN useGlobalStatesAndProperties returns value THEN aria-details=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          details: [],
+        }),
+      );
+      expect(result.current['aria-details']).toBe(undefined);
+    });
+  });
 });

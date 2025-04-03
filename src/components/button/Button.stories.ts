@@ -26,6 +26,7 @@ export const Accessible: Story = {
     busy: true,
     controls: ['1', '2'],
     current: 'location',
-    describedby: 'some_id',
+    describedby: 'describe_id',
+    details: 'details_id',
   },
 };
