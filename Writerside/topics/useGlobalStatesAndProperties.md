@@ -19,10 +19,11 @@ them.
 IUseGlobalStatesAndPropertiesProps {
   atomic?: boolean;
   busy?: boolean;
-  controls?: string | string[]; // list of ids
+  controls?: string | string[];
   current?: 'page' | 'step' | 'location' | 'date' | 'time' | string | boolean;
-  describedby?: string | string[]; // list of ids
-  dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup'; // list of tokens
+  describedby?: string | string[];
+  dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup';
+  flowto?: string | string[];
 }
 </code-block>
 
@@ -40,6 +41,8 @@ IUseGlobalStatesAndPropertiesProps {
   description of the element is located in a tooltip.
 - dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup'; - list of tokens. They describe the way how
   dropeffect works.
+- flowto?: string | string[]; - list of ids, that indicates to what element or elements leads the element, that contains
+  property of aria-flowto
 
 ## Result Schema
 
@@ -51,6 +54,7 @@ interface IUseGlobalStatesAndProperties {
   'aria-current': "page" | "location" | "location" | "date" | "time" | true | undefined;
   'aria-describedby': string | undefined;
   'aria-dropeffect': 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup' |undefined;
+  'aria-flowto': string | undefined;
 }
 </code-block>
 
@@ -86,3 +90,4 @@ Documentation.
 - [aria-describedby](https://www.w3.org/TR/wai-aria-1.2/#aria-controls)
 - [aria-details](https://www.w3.org/TR/wai-aria-1.2/#aria-details)
 - [aria-dropeffect](https://www.w3.org/TR/wai-aria-1.2/#aria-dropeffect)
+- [aria-flowto](https://www.w3.org/TR/wai-aria-1.2/#aria-flowto)

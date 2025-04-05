@@ -261,7 +261,7 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-describedby']).toBe('foo');
     });
 
-    test('GIVEN THAT describedby = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-describedby="foo bar"', () => {
+    test('GIVEN THAT describedby = ["foo", "bar"] WHEN useGlobalStatesAndProperties returns value THEN aria-describedby="foo bar"', () => {
       const { result } = renderHook(() =>
         useGlobalStatesAndProperties({
           describedby: ['foo', 'bar'],
@@ -431,6 +431,67 @@ describe('useGlobalStatesAndProperties', () => {
     test('GIVEN THAT dropeffect is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-dropeffect=undefined', () => {
       const { result } = renderHook(() => useGlobalStatesAndProperties({}));
       expect(result.current['aria-dropeffect']).toBe(undefined);
+    });
+  });
+
+  describe('aria-flowto', () => {
+    test('GIVEN THAT flowto = "foo" WHEN useGlobalStatesAndProperties returns value THEN aria-flowto="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          flowto: 'foo',
+        }),
+      );
+      expect(result.current['aria-flowto']).toBe('foo');
+    });
+
+    test('GIVEN THAT flowto = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-flowto="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          flowto: 'foo bar',
+        }),
+      );
+      expect(result.current['aria-flowto']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT flowto = ["foo"] WHEN useGlobalStatesAndProperties returns value THEN aria-flowto="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          flowto: ['foo'],
+        }),
+      );
+      expect(result.current['aria-flowto']).toBe('foo');
+    });
+
+    test('GIVEN THAT flowto = ["foo", "bar"] WHEN useGlobalStatesAndProperties returns value THEN aria-flowto="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          flowto: ['foo', 'bar'],
+        }),
+      );
+      expect(result.current['aria-flowto']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT flowto = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-flowto=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          flowto: undefined,
+        }),
+      );
+      expect(result.current['aria-flowto']).toBe(undefined);
+    });
+
+    test('GIVEN THAT flowto is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-flowto=undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-flowto']).toBe(undefined);
+    });
+
+    test('GIVEN THAT flowto is an empty array WHEN useGlobalStatesAndProperties returns value THEN aria-flowto=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          flowto: [],
+        }),
+      );
+      expect(result.current['aria-flowto']).toBe(undefined);
     });
   });
 });

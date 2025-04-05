@@ -4,6 +4,15 @@ const ARIA_CURRENT_TOKENS = ['page', 'step', 'location', 'date', 'time'];
 
 type TAriaCurrentToken = 'page' | 'step' | 'location' | 'date' | 'time';
 
+// const ARIA_DROPEFFECT_TOKENS = [
+//   'none',
+//   'copy',
+//   'execute',
+//   'link',
+//   'move',
+//   'popup',
+// ];
+
 type TAriaDropeffectToken =
   | 'none'
   | 'copy'
@@ -20,6 +29,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-describedby': string | undefined;
   'aria-details': string | undefined;
   'aria-dropeffect': TAriaDropeffectToken | undefined;
+  'aria-flowto': string | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -29,7 +39,8 @@ export interface IUseGlobalStatesAndPropertiesProps {
   current?: TAriaCurrentToken | string | boolean;
   describedby?: string | string[]; // list of ids
   details?: string | string[]; // list of ids
-  dropeffect?: TAriaDropeffectToken | undefined;
+  dropeffect?: TAriaDropeffectToken;
+  flowto?: string | string[];
 }
 
 /**
@@ -44,6 +55,7 @@ export default function useGlobalStatesAndProperties({
   describedby,
   details,
   dropeffect,
+  flowto,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -60,6 +72,7 @@ export default function useGlobalStatesAndProperties({
   const [ariaDropeffect, setAriaDropeffect] = useState<
     TAriaDropeffectToken | undefined
   >(undefined);
+  const [ariaFlowTo, setAriaFlowTo] = useState<string | undefined>(undefined);
 
   // aria-atomic
   useEffect(() => {
@@ -150,6 +163,21 @@ export default function useGlobalStatesAndProperties({
     }
   }, [dropeffect]);
 
+  // aria-flowto
+  useEffect(() => {
+    if (typeof flowto === 'string') {
+      setAriaFlowTo(flowto);
+    } else if (typeof flowto === 'object' && Array.isArray(flowto)) {
+      if (!flowto.length) {
+        setAriaFlowTo(undefined);
+        return;
+      }
+      setAriaFlowTo(flowto.join(' '));
+    } else {
+      setAriaFlowTo(undefined);
+    }
+  }, [flowto]);
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
@@ -159,5 +187,6 @@ export default function useGlobalStatesAndProperties({
     'aria-describedby': ariaDescribedBy,
     'aria-details': ariaDetails,
     'aria-dropeffect': ariaDropeffect,
+    'aria-flowto': ariaFlowTo,
   };
 }
