@@ -1,10 +1,14 @@
 # Daankh Accessible React Components
 
-A package of accessible React components.
+A package of React Accessible Components and React Accessibility Hooks.
 
-**The package under construction. Do not use it!**
+**The package is under construction.**
 
-**It will be ready, when I release version of `1.0.0`**
+**Since the version of `0.1.0` this package offers `useGlobalStatesAndProperties` hook and
+the documentation page. So, there is a very limited functionality. I'm going to gradually increase the amount of
+components and hooks. They will be released under the versions of `0.1.x`**
+
+**This package will be fully-ready, when I release the version of `1.0.0`**
 
 This packages includes a set of React components and React Hooks, that helps to implement accessible applications.
 

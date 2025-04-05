@@ -19,6 +19,8 @@ The package was made according to [W3C](https://www.w3.org) standards, especiall
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
 - [ARIA in HTML](https://w3c.github.io/html-aria/)
 
+The code was written in TypeScript.
+
 ## Feedback and support
 
 Please report any issues, usability improvements, or feature requests to my
