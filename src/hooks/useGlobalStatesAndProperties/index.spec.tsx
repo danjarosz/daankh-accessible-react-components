@@ -354,4 +354,83 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-details']).toBe(undefined);
     });
   });
+
+  describe('aria-dropeffect', () => {
+    test('GIVEN THAT dropeffect = "copy" WHEN useGlobalStatesAndProperties returns value THEN aria-details="copy"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: 'copy',
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe('copy');
+    });
+
+    test('GIVEN THAT dropeffect = "execute" WHEN useGlobalStatesAndProperties returns value THEN aria-details="execute"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: 'execute',
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe('execute');
+    });
+
+    test('GIVEN THAT dropeffect = "execute" WHEN useGlobalStatesAndProperties returns value THEN aria-details="execute"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: 'execute',
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe('execute');
+    });
+
+    test('GIVEN THAT dropeffect = "link" WHEN useGlobalStatesAndProperties returns value THEN aria-details="link"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: 'link',
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe('link');
+    });
+
+    test('GIVEN THAT dropeffect = "move" WHEN useGlobalStatesAndProperties returns value THEN aria-details="move"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: 'move',
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe('move');
+    });
+
+    test('GIVEN THAT dropeffect = "none" WHEN useGlobalStatesAndProperties returns value THEN aria-details="none"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: 'none',
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe('none');
+    });
+
+    test('GIVEN THAT dropeffect = "popup" WHEN useGlobalStatesAndProperties returns value THEN aria-details="popup"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: 'popup',
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe('popup');
+    });
+
+    test('GIVEN THAT dropeffect = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-dropeffect=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          dropeffect: undefined,
+        }),
+      );
+      expect(result.current['aria-dropeffect']).toBe(undefined);
+    });
+
+    test('GIVEN THAT dropeffect is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-dropeffect=undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-dropeffect']).toBe(undefined);
+    });
+  });
 });

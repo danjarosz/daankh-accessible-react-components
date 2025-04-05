@@ -4,6 +4,14 @@ const ARIA_CURRENT_TOKENS = ['page', 'step', 'location', 'date', 'time'];
 
 type TAriaCurrentToken = 'page' | 'step' | 'location' | 'date' | 'time';
 
+type TAriaDropeffectToken =
+  | 'none'
+  | 'copy'
+  | 'execute'
+  | 'link'
+  | 'move'
+  | 'popup';
+
 export interface IUseGlobalStatesAndProperties {
   'aria-atomic': boolean | undefined;
   'aria-busy': boolean | undefined;
@@ -11,6 +19,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-current': TAriaCurrentToken | true | undefined;
   'aria-describedby': string | undefined;
   'aria-details': string | undefined;
+  'aria-dropeffect': TAriaDropeffectToken | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -20,6 +29,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   current?: TAriaCurrentToken | string | boolean;
   describedby?: string | string[]; // list of ids
   details?: string | string[]; // list of ids
+  dropeffect?: TAriaDropeffectToken | undefined;
 }
 
 /**
@@ -33,6 +43,7 @@ export default function useGlobalStatesAndProperties({
   current,
   describedby,
   details,
+  dropeffect,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -46,6 +57,9 @@ export default function useGlobalStatesAndProperties({
     undefined,
   );
   const [ariaDetails, setAriaDetails] = useState<string | undefined>(undefined);
+  const [ariaDropeffect, setAriaDropeffect] = useState<
+    TAriaDropeffectToken | undefined
+  >(undefined);
 
   // aria-atomic
   useEffect(() => {
@@ -127,6 +141,15 @@ export default function useGlobalStatesAndProperties({
     }
   }, [details]);
 
+  // aria-dropeffect
+  useEffect(() => {
+    if (typeof dropeffect === 'string') {
+      setAriaDropeffect(dropeffect);
+    } else {
+      setAriaDropeffect(undefined);
+    }
+  }, [dropeffect]);
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
@@ -135,5 +158,6 @@ export default function useGlobalStatesAndProperties({
     'aria-current': ariaCurrent,
     'aria-describedby': ariaDescribedBy,
     'aria-details': ariaDetails,
+    'aria-dropeffect': ariaDropeffect,
   };
 }

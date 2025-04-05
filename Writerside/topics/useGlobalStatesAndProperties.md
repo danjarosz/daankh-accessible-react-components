@@ -22,6 +22,7 @@ IUseGlobalStatesAndPropertiesProps {
   controls?: string | string[]; // list of ids
   current?: 'page' | 'step' | 'location' | 'date' | 'time' | string | boolean;
   describedby?: string | string[]; // list of ids
+  dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup'; // list of tokens
 }
 </code-block>
 
@@ -37,7 +38,8 @@ IUseGlobalStatesAndPropertiesProps {
   these values `'page' | 'step' | 'location' | 'date' | 'time'`, because they have semantic meaning.
 - `describedby?: string | string[]` - list of ids, what elements describes given element. E.x., useful if the
   description of the element is located in a tooltip.
-- ...
+- dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup'; - list of tokens. They describe the way how
+  dropeffect works.
 
 ## Result Schema
 
@@ -48,6 +50,7 @@ interface IUseGlobalStatesAndProperties {
   'aria-controls': string | undefined;
   'aria-current': "page" | "location" | "location" | "date" | "time" | true | undefined;
   'aria-describedby': string | undefined;
+  'aria-dropeffect': 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup' |undefined;
 }
 </code-block>
 
@@ -70,7 +73,8 @@ return &lt;button {...accessibilityProps}&gt;Login&lt;/button&gt;
 ## Recommendations
 
 In most cases, if some of specified `aria=*` attributes should have a default value, the value should be set to
-`undefined`, to not include this `aria-*` into DOM. To ensure that, check out W3C Aria Documentation.
+`undefined`, to not attach this `aria-*` into DOM. As for the specific `aria-*` property, check out W3C Aria
+Documentation.
 
 ## Resources:
 
@@ -81,3 +85,4 @@ In most cases, if some of specified `aria=*` attributes should have a default va
 - [aria-current](https://www.w3.org/TR/wai-aria-1.2/#aria-current)
 - [aria-describedby](https://www.w3.org/TR/wai-aria-1.2/#aria-controls)
 - [aria-details](https://www.w3.org/TR/wai-aria-1.2/#aria-details)
+- [aria-dropeffect](https://www.w3.org/TR/wai-aria-1.2/#aria-dropeffect)
