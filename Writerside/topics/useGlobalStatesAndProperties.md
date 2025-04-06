@@ -24,6 +24,7 @@ IUseGlobalStatesAndPropertiesProps {
   describedby?: string | string[];
   dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup';
   flowto?: string | string[];
+  grabbed?: boolean;
 }
 </code-block>
 
@@ -39,10 +40,11 @@ IUseGlobalStatesAndPropertiesProps {
   these values `'page' | 'step' | 'location' | 'date' | 'time'`, because they have semantic meaning.
 - `describedby?: string | string[]` - list of ids, what elements describes given element. E.x., useful if the
   description of the element is located in a tooltip.
-- dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup'; - list of tokens. They describe the way how
+- `dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup';` - list of tokens. They describe the way how
   dropeffect works.
-- flowto?: string | string[]; - list of ids, that indicates to what element or elements leads the element, that contains
+- `flowto?: string | string[];` - list of ids, that indicates to what element or elements leads the element, that contains
   property of aria-flowto
+- `grabbed?: boolean;` - indicates if an element has been selected for dragging
 
 ## Result Schema
 
@@ -55,6 +57,7 @@ interface IUseGlobalStatesAndProperties {
   'aria-describedby': string | undefined;
   'aria-dropeffect': 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup' |undefined;
   'aria-flowto': string | undefined;
+  'aria-grabbed': boolean | undefined;
 }
 </code-block>
 
@@ -91,3 +94,4 @@ Documentation.
 - [aria-details](https://www.w3.org/TR/wai-aria-1.2/#aria-details)
 - [aria-dropeffect](https://www.w3.org/TR/wai-aria-1.2/#aria-dropeffect)
 - [aria-flowto](https://www.w3.org/TR/wai-aria-1.2/#aria-flowto)
+- [aria-grabbed](https://www.w3.org/TR/wai-aria-1.2/#aria-grabbed)

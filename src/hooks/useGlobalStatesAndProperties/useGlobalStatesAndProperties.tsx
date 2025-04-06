@@ -30,6 +30,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-details': string | undefined;
   'aria-dropeffect': TAriaDropeffectToken | undefined;
   'aria-flowto': string | undefined;
+  'aria-grabbed': boolean | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -41,6 +42,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   details?: string | string[]; // list of ids
   dropeffect?: TAriaDropeffectToken;
   flowto?: string | string[];
+  grabbed?: boolean;
 }
 
 /**
@@ -56,6 +58,7 @@ export default function useGlobalStatesAndProperties({
   details,
   dropeffect,
   flowto,
+  grabbed,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -73,6 +76,9 @@ export default function useGlobalStatesAndProperties({
     TAriaDropeffectToken | undefined
   >(undefined);
   const [ariaFlowTo, setAriaFlowTo] = useState<string | undefined>(undefined);
+  const [ariaGrabbed, setAriaGrabbed] = useState<boolean | undefined>(
+    undefined,
+  );
 
   // aria-atomic
   useEffect(() => {
@@ -178,6 +184,15 @@ export default function useGlobalStatesAndProperties({
     }
   }, [flowto]);
 
+  // aria-grabbed
+  useEffect(() => {
+    if (typeof grabbed === 'boolean') {
+      setAriaGrabbed(grabbed);
+    } else {
+      setAriaGrabbed(undefined);
+    }
+  }, [grabbed]);
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
@@ -188,5 +203,6 @@ export default function useGlobalStatesAndProperties({
     'aria-details': ariaDetails,
     'aria-dropeffect': ariaDropeffect,
     'aria-flowto': ariaFlowTo,
+    'aria-grabbed': ariaGrabbed,
   };
 }

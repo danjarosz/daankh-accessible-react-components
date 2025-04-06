@@ -494,4 +494,38 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-flowto']).toBe(undefined);
     });
   });
+
+  describe('aria-grabbed', () => {
+    test('GIVEN THAT grabbed = true WHEN useGlobalStatesAndProperties returns value THEN aria-grabbed = true', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          grabbed: true,
+        }),
+      );
+      expect(result.current['aria-grabbed']).toBe(true);
+    });
+
+    test('GIVEN THAT grabbed = false WHEN useGlobalStatesAndProperties returns value THEN aria-grabbed = false', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          grabbed: false,
+        }),
+      );
+      expect(result.current['aria-grabbed']).toBe(false);
+    });
+
+    test('GIVEN THAT grabbed = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-grabbed = undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          grabbed: undefined,
+        }),
+      );
+      expect(result.current['aria-grabbed']).toBe(undefined);
+    });
+
+    test('GIVEN THAT grabbed is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-grabbed = undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-grabbed']).toBe(undefined);
+    });
+  });
 });
