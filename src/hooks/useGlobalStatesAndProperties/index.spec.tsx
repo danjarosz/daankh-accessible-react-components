@@ -528,4 +528,38 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-grabbed']).toBe(undefined);
     });
   });
+
+  describe('aria-hidden', () => {
+    test('GIVEN THAT hidden = true WHEN useGlobalStatesAndProperties returns value THEN aria-hidden = true', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          hidden: true,
+        }),
+      );
+      expect(result.current['aria-hidden']).toBe(true);
+    });
+
+    test('GIVEN THAT hidden = false WHEN useGlobalStatesAndProperties returns value THEN aria-hidden = false', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          hidden: false,
+        }),
+      );
+      expect(result.current['aria-hidden']).toBe(false);
+    });
+
+    test('GIVEN THAT hidden = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-hidden = undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          hidden: undefined,
+        }),
+      );
+      expect(result.current['aria-hidden']).toBe(undefined);
+    });
+
+    test('GIVEN THAT hidden is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-hidden = undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-hidden']).toBe(undefined);
+    });
+  });
 });
