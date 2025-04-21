@@ -32,6 +32,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-flowto': string | undefined;
   'aria-grabbed': boolean | undefined;
   'aria-hidden': boolean | undefined;
+  'aria-keyshortcuts': string | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -45,6 +46,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   flowto?: string | string[];
   grabbed?: boolean;
   hidden?: boolean;
+  keyshortcuts?: string;
 }
 
 /**
@@ -62,6 +64,7 @@ export default function useGlobalStatesAndProperties({
   flowto,
   grabbed,
   hidden,
+  keyshortcuts,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -83,6 +86,9 @@ export default function useGlobalStatesAndProperties({
     undefined,
   );
   const [ariaHidden, setAriaHidden] = useState<boolean | undefined>(undefined);
+  const [ariaKeyshortcuts, setAriaKeyshortcuts] = useState<string | undefined>(
+    undefined,
+  );
 
   // aria-atomic
   useEffect(() => {
@@ -206,6 +212,15 @@ export default function useGlobalStatesAndProperties({
     }
   }, [hidden]);
 
+  // aria-keyshortcuts
+  useEffect(() => {
+    if (Boolean(keyshortcuts)) {
+      setAriaKeyshortcuts(keyshortcuts);
+    } else {
+      setAriaKeyshortcuts(undefined);
+    }
+  }, [keyshortcuts]);
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
@@ -218,5 +233,6 @@ export default function useGlobalStatesAndProperties({
     'aria-flowto': ariaFlowTo,
     'aria-grabbed': ariaGrabbed,
     'aria-hidden': ariaHidden,
+    'aria-keyshortcuts': ariaKeyshortcuts,
   };
 }

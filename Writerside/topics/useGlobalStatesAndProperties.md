@@ -25,6 +25,9 @@ IUseGlobalStatesAndPropertiesProps {
   dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup';
   flowto?: string | string[];
   grabbed?: boolean;
+  hidden?: boolean;
+  keyshortcuts?: string;
+
 }
 </code-block>
 
@@ -45,6 +48,8 @@ IUseGlobalStatesAndPropertiesProps {
 - `flowto?: string | string[];` - list of ids, that indicates to what element or elements leads the element, that contains
   property of aria-flowto
 - `grabbed?: boolean;` - indicates if an element has been selected for dragging
+-  hidden?: boolean; - indicates hidden state of the element
+- keyshortcuts?: string; - defines keyboard shortcuts for the given element. Check out how to define them on [W3C page](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)
 
 ## Result Schema
 
@@ -58,6 +63,8 @@ interface IUseGlobalStatesAndProperties {
   'aria-dropeffect': 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup' |undefined;
   'aria-flowto': string | undefined;
   'aria-grabbed': boolean | undefined;
+  'aria-hidden': boolean | undefined;
+  'aria-keyshortcuts': string | undefined;
 }
 </code-block>
 
@@ -95,3 +102,5 @@ Documentation.
 - [aria-dropeffect](https://www.w3.org/TR/wai-aria-1.2/#aria-dropeffect)
 - [aria-flowto](https://www.w3.org/TR/wai-aria-1.2/#aria-flowto)
 - [aria-grabbed](https://www.w3.org/TR/wai-aria-1.2/#aria-grabbed)
+- [aria-hidden](https://www.w3.org/TR/wai-aria-1.2/#aria-hidden)
+- [aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)

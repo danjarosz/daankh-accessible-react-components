@@ -562,4 +562,38 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-hidden']).toBe(undefined);
     });
   });
+
+  describe('aria-keyshortcuts', () => {
+    test('GIVEN THAT keyshortcuts = "CONTROL+S" WHEN useGlobalStatesAndProperties returns value THEN aria-keyshortcuts = "CONTROL+S"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          keyshortcuts: 'CONTROL+S',
+        }),
+      );
+      expect(result.current['aria-keyshortcuts']).toBe('CONTROL+S');
+    });
+
+    test('GIVEN THAT keyshortcuts = "" WHEN useGlobalStatesAndProperties returns value THEN aria-keyshortcuts = undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          keyshortcuts: '',
+        }),
+      );
+      expect(result.current['aria-keyshortcuts']).toBe(undefined);
+    });
+
+    test('GIVEN THAT keyshortcuts = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-keyshortcuts = undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          keyshortcuts: undefined,
+        }),
+      );
+      expect(result.current['aria-keyshortcuts']).toBe(undefined);
+    });
+
+    test('GIVEN THAT keyshortcuts is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-keyshortcuts = undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-keyshortcuts']).toBe(undefined);
+    });
+  });
 });
