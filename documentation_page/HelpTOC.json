@@ -1,1 +1,66 @@
-{"entities":{"pages":{"starter-topic":{"id":"starter-topic","title":"About Daankh Accessible React Components","url":"starter-topic.html","level":0,"tabIndex":0},"Installation":{"id":"Installation","title":"Installation","url":"installation.html","level":0,"tabIndex":1},"Documentation":{"id":"Documentation","title":"Documentation","url":"documentation.html","level":0,"pages":["hooks","Components"],"tabIndex":2},"hooks":{"id":"hooks","title":"Hooks","url":"hooks.html","level":1,"parentId":"Documentation","pages":["useGlobalStatesAndProperties"],"tabIndex":0},"useGlobalStatesAndProperties":{"id":"useGlobalStatesAndProperties","title":"useGlobalStatesAndProperties","url":"useglobalstatesandproperties.html","level":2,"parentId":"hooks","tabIndex":0},"Components":{"id":"Components","title":"Components","url":"components.html","level":1,"parentId":"Documentation","tabIndex":1},"Accessibility-Patterns":{"id":"Accessibility-Patterns","title":"Accessibility Patterns","url":"accessibility-patterns.html","level":0,"tabIndex":3}}},"topLevelIds":["starter-topic","Installation","Documentation","Accessibility-Patterns"]}
+{
+  "entities": {
+    "pages": {
+      "starter-topic": {
+        "id": "starter-topic",
+        "title": "About Daankh Accessible React Components",
+        "url": "starter-topic.html",
+        "level": 0,
+        "tabIndex": 0
+      },
+      "Installation": {
+        "id": "Installation",
+        "title": "Installation",
+        "url": "installation.html",
+        "level": 0,
+        "tabIndex": 1
+      },
+      "Documentation": {
+        "id": "Documentation",
+        "title": "Documentation",
+        "url": "documentation.html",
+        "level": 0,
+        "pages": ["hooks", "Components"],
+        "tabIndex": 2
+      },
+      "hooks": {
+        "id": "hooks",
+        "title": "Hooks",
+        "url": "hooks.html",
+        "level": 1,
+        "parentId": "Documentation",
+        "pages": ["useGlobalStatesAndProperties"],
+        "tabIndex": 0
+      },
+      "useGlobalStatesAndProperties": {
+        "id": "useGlobalStatesAndProperties",
+        "title": "useGlobalStatesAndProperties",
+        "url": "useglobalstatesandproperties.html",
+        "level": 2,
+        "parentId": "hooks",
+        "tabIndex": 0
+      },
+      "Components": {
+        "id": "Components",
+        "title": "Components",
+        "url": "components.html",
+        "level": 1,
+        "parentId": "Documentation",
+        "tabIndex": 1
+      },
+      "Accessibility-Patterns": {
+        "id": "Accessibility-Patterns",
+        "title": "Accessibility Patterns",
+        "url": "accessibility-patterns.html",
+        "level": 0,
+        "tabIndex": 3
+      }
+    }
+  },
+  "topLevelIds": [
+    "starter-topic",
+    "Installation",
+    "Documentation",
+    "Accessibility-Patterns"
+  ]
+}
