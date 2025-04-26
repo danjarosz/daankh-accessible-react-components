@@ -12,7 +12,7 @@ type TAriaDropeffectToken =
   | 'move'
   | 'popup';
 
-type TAriaLiveToiken = 'assertive' | 'off' | 'polite';
+type TAriaLiveToken = 'assertive' | 'off' | 'polite';
 
 export interface IUseGlobalStatesAndProperties {
   'aria-atomic': boolean | undefined;
@@ -26,7 +26,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-grabbed': boolean | undefined;
   'aria-hidden': boolean | undefined;
   'aria-keyshortcuts': string | undefined;
-  'aria-live': TAriaLiveToiken | undefined;
+  'aria-live': TAriaLiveToken | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -41,7 +41,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   grabbed?: boolean;
   hidden?: boolean;
   keyshortcuts?: string;
-  live?: TAriaLiveToiken;
+  live?: TAriaLiveToken;
 }
 
 /**
@@ -85,7 +85,7 @@ export default function useGlobalStatesAndProperties({
   const [ariaKeyshortcuts, setAriaKeyshortcuts] = useState<string | undefined>(
     undefined,
   );
-  const [ariaLive, setAriaLive] = useState<TAriaLiveToiken | undefined>(
+  const [ariaLive, setAriaLive] = useState<TAriaLiveToken | undefined>(
     undefined,
   );
 

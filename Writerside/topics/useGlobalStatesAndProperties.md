@@ -27,7 +27,7 @@ IUseGlobalStatesAndPropertiesProps {
   grabbed?: boolean;
   hidden?: boolean;
   keyshortcuts?: string;
-
+  live?: 'assertive' | 'off' | 'polite'
 }
 </code-block>
 
@@ -45,11 +45,14 @@ IUseGlobalStatesAndPropertiesProps {
   description of the element is located in a tooltip.
 - `dropeffect?: 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup';` - list of tokens. They describe the way how
   dropeffect works.
-- `flowto?: string | string[];` - list of ids, that indicates to what element or elements leads the element, that contains
-  property of aria-flowto
-- `grabbed?: boolean;` - indicates if an element has been selected for dragging
--  hidden?: boolean; - indicates hidden state of the element
-- keyshortcuts?: string; - defines keyboard shortcuts for the given element. Check out how to define them on [W3C page](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)
+- `flowto?: string | string[];` - list of ids, that indicates to what element or elements leads the element, that
+  contains property of aria-flowto
+- `grabbed?: boolean` - indicates if an element has been selected for dragging
+- `hidden?: boolean` - indicates hidden state of the element
+- `keyshortcuts?: string` - defines keyboard shortcuts for the given element. Check out how to define them
+  on [W3C page](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)
+- `live?` - 'assertive' | 'off' | 'polite' - Indicates that an element will be updated, and describes the types of
+  updates the user agents, assistive technologies, and user can expect from the live region.
 
 ## Result Schema
 
@@ -104,3 +107,4 @@ Documentation.
 - [aria-grabbed](https://www.w3.org/TR/wai-aria-1.2/#aria-grabbed)
 - [aria-hidden](https://www.w3.org/TR/wai-aria-1.2/#aria-hidden)
 - [aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)
+- [aria-live](https://www.w3.org/TR/wai-aria-1.2/#aria-live)
