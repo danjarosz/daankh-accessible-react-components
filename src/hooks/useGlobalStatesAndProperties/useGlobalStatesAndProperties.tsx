@@ -4,15 +4,6 @@ const ARIA_CURRENT_TOKENS = ['page', 'step', 'location', 'date', 'time'];
 
 type TAriaCurrentToken = 'page' | 'step' | 'location' | 'date' | 'time';
 
-// const ARIA_DROPEFFECT_TOKENS = [
-//   'none',
-//   'copy',
-//   'execute',
-//   'link',
-//   'move',
-//   'popup',
-// ];
-
 type TAriaDropeffectToken =
   | 'none'
   | 'copy'
@@ -20,6 +11,8 @@ type TAriaDropeffectToken =
   | 'link'
   | 'move'
   | 'popup';
+
+type TAriaLiveToiken = 'assertive' | 'off' | 'polite';
 
 export interface IUseGlobalStatesAndProperties {
   'aria-atomic': boolean | undefined;
@@ -33,6 +26,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-grabbed': boolean | undefined;
   'aria-hidden': boolean | undefined;
   'aria-keyshortcuts': string | undefined;
+  'aria-live': TAriaLiveToiken | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -47,6 +41,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   grabbed?: boolean;
   hidden?: boolean;
   keyshortcuts?: string;
+  live?: TAriaLiveToiken;
 }
 
 /**
@@ -65,6 +60,7 @@ export default function useGlobalStatesAndProperties({
   grabbed,
   hidden,
   keyshortcuts,
+  live,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -87,6 +83,9 @@ export default function useGlobalStatesAndProperties({
   );
   const [ariaHidden, setAriaHidden] = useState<boolean | undefined>(undefined);
   const [ariaKeyshortcuts, setAriaKeyshortcuts] = useState<string | undefined>(
+    undefined,
+  );
+  const [ariaLive, setAriaLive] = useState<TAriaLiveToiken | undefined>(
     undefined,
   );
 
@@ -221,6 +220,15 @@ export default function useGlobalStatesAndProperties({
     }
   }, [keyshortcuts]);
 
+  // aria-live
+  useEffect(() => {
+    if (typeof live === 'string') {
+      setAriaLive(live);
+    } else {
+      setAriaLive(undefined);
+    }
+  }, [live]);
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
@@ -234,5 +242,6 @@ export default function useGlobalStatesAndProperties({
     'aria-grabbed': ariaGrabbed,
     'aria-hidden': ariaHidden,
     'aria-keyshortcuts': ariaKeyshortcuts,
+    'aria-live': ariaLive,
   };
 }

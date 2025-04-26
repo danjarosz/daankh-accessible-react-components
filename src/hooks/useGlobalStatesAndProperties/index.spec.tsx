@@ -596,4 +596,38 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-keyshortcuts']).toBe(undefined);
     });
   });
+
+  describe('aria-live', () => {
+    test('GIVEN THAT live = "assertive" WHEN useGlobalStatesAndProperties returns value THEN aria-live = "assertive"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          live: 'assertive',
+        }),
+      );
+      expect(result.current['aria-live']).toBe('assertive');
+    });
+
+    test('GIVEN THAT live = "off" WHEN useGlobalStatesAndProperties returns value THEN aria-live = "off"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          live: 'off',
+        }),
+      );
+      expect(result.current['aria-live']).toBe('off');
+    });
+
+    test('GIVEN THAT live = "polite" WHEN useGlobalStatesAndProperties returns value THEN aria-live = "polite"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          live: 'polite',
+        }),
+      );
+      expect(result.current['aria-live']).toBe('polite');
+    });
+
+    test('GIVEN THAT live not provided WHEN useGlobalStatesAndProperties returns value THEN aria-live = undefined"', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-live']).toBe(undefined);
+    });
+  });
 });
