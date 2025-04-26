@@ -14,6 +14,13 @@ type TAriaDropeffectToken =
 
 type TAriaLiveToken = 'assertive' | 'off' | 'polite';
 
+type TAriaRelevantToken =
+  | 'additions'
+  | 'additions text'
+  | 'all'
+  | 'removals'
+  | 'text';
+
 export interface IUseGlobalStatesAndProperties {
   'aria-atomic': boolean | undefined;
   'aria-busy': boolean | undefined;
@@ -28,6 +35,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-keyshortcuts': string | undefined;
   'aria-live': TAriaLiveToken | undefined;
   'aria-owns': string | undefined;
+  'aria-relevant': TAriaRelevantToken | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -44,6 +52,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   keyshortcuts?: string;
   live?: TAriaLiveToken;
   owns?: string | string[];
+  relevant?: TAriaRelevantToken;
 }
 
 /**
@@ -64,6 +73,7 @@ export default function useGlobalStatesAndProperties({
   keyshortcuts,
   live,
   owns,
+  relevant,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -92,6 +102,9 @@ export default function useGlobalStatesAndProperties({
     undefined,
   );
   const [ariaOwns, setAriaOwns] = useState<string | undefined>(undefined);
+  const [ariaRelevant, setAriaRelevant] = useState<
+    TAriaRelevantToken | undefined
+  >(undefined);
 
   // aria-atomic
   useEffect(() => {
@@ -248,6 +261,15 @@ export default function useGlobalStatesAndProperties({
     }
   }, [owns]);
 
+  // aria-relevant
+  useEffect(() => {
+    if (typeof relevant === 'string') {
+      setAriaRelevant(relevant);
+    } else {
+      setAriaRelevant(undefined);
+    }
+  }, [relevant]);
+
   // TODO check out to not return undefined values at all
 
   // RETURN
@@ -265,5 +287,6 @@ export default function useGlobalStatesAndProperties({
     'aria-keyshortcuts': ariaKeyshortcuts,
     'aria-live': ariaLive,
     'aria-owns': ariaOwns,
+    'aria-relevant': ariaRelevant,
   };
 }

@@ -29,6 +29,7 @@ IUseGlobalStatesAndPropertiesProps {
   keyshortcuts?: string;
   live?: 'assertive' | 'off' | 'polite';
   owns?: string | string[];
+  relevant?: 'additions' | 'additions text' | 'all' | 'removals' | 'text';
 }
 </code-block>
 
@@ -55,6 +56,8 @@ IUseGlobalStatesAndPropertiesProps {
 - `live?` - 'assertive' | 'off' | 'polite' - Indicates that an element will be updated, and describes the types of
   updates the user agents, assistive technologies, and user can expect from the live region.
 - `controls?: string | string[]` - list od IDs
+- `relevant?: 'additions' | 'additions text' | 'all' | 'removals' | 'text'` - this is about presenting changes by
+  assistive technologies.
 
 ## Result Schema
 
@@ -115,3 +118,4 @@ The best place to know how to use each aria-* attribute.
 - [aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)
 - [aria-live](https://www.w3.org/TR/wai-aria-1.2/#aria-live)
 - [aria-owns](https://www.w3.org/TR/wai-aria-1.2/#aria-owns)
+- [aria-relevant](https://www.w3.org/TR/wai-aria-1.2/#aria-relevant)

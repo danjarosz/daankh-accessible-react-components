@@ -700,4 +700,65 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-owns']).toBe(undefined);
     });
   });
+
+  describe('aria-relevant', () => {
+    test('GIVEN THAT relevant = "additions" WHEN useGlobalStatesAndProperties returns value THEN aria-relevant = "additions"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          relevant: 'additions',
+        }),
+      );
+      expect(result.current['aria-relevant']).toBe('additions');
+    });
+
+    test('GIVEN THAT relevant = "additions text" WHEN useGlobalStatesAndProperties returns value THEN aria-relevant = "additions text"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          relevant: 'additions text',
+        }),
+      );
+      expect(result.current['aria-relevant']).toBe('additions text');
+    });
+
+    test('GIVEN THAT relevant = "all" WHEN useGlobalStatesAndProperties returns value THEN aria-relevant = "all"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          relevant: 'all',
+        }),
+      );
+      expect(result.current['aria-relevant']).toBe('all');
+    });
+
+    test('GIVEN THAT relevant = "removals" WHEN useGlobalStatesAndProperties returns value THEN aria-relevant = "removals"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          relevant: 'removals',
+        }),
+      );
+      expect(result.current['aria-relevant']).toBe('removals');
+    });
+
+    test('GIVEN THAT relevant = "text" WHEN useGlobalStatesAndProperties returns value THEN aria-relevant = "text"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          relevant: 'text',
+        }),
+      );
+      expect(result.current['aria-relevant']).toBe('text');
+    });
+
+    test('GIVEN THAT relevant is undefined WHEN useGlobalStatesAndProperties returns value THEN aria-relevant = undefined"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          relevant: undefined,
+        }),
+      );
+      expect(result.current['aria-relevant']).toBe(undefined);
+    });
+
+    test('GIVEN THAT relevant not provided WHEN useGlobalStatesAndProperties returns value THEN aria-relevant = undefined"', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-relevant']).toBe(undefined);
+    });
+  });
 });
