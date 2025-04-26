@@ -27,7 +27,8 @@ IUseGlobalStatesAndPropertiesProps {
   grabbed?: boolean;
   hidden?: boolean;
   keyshortcuts?: string;
-  live?: 'assertive' | 'off' | 'polite'
+  live?: 'assertive' | 'off' | 'polite';
+  owns?: string | string[];
 }
 </code-block>
 
@@ -53,6 +54,7 @@ IUseGlobalStatesAndPropertiesProps {
   on [W3C page](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)
 - `live?` - 'assertive' | 'off' | 'polite' - Indicates that an element will be updated, and describes the types of
   updates the user agents, assistive technologies, and user can expect from the live region.
+- `controls?: string | string[]` - list od IDs
 
 ## Result Schema
 
@@ -68,6 +70,8 @@ interface IUseGlobalStatesAndProperties {
   'aria-grabbed': boolean | undefined;
   'aria-hidden': boolean | undefined;
   'aria-keyshortcuts': string | undefined;
+  'aria-live': 'assertive' | 'off' | 'polite' | undefined
+  'aria-owns': string | undefined
 }
 </code-block>
 
@@ -95,6 +99,8 @@ Documentation.
 
 ## Resources:
 
+The best place to know how to use each aria-* attribute.
+
 - [Global state and properties description](https://www.w3.org/TR/wai-aria-1.2/#global_states)
 - [aria-atomic](https://www.w3.org/TR/wai-aria-1.2/#aria-atomic)
 - [aria-busy](https://www.w3.org/TR/wai-aria-1.2/#aria-busy)
@@ -108,3 +114,4 @@ Documentation.
 - [aria-hidden](https://www.w3.org/TR/wai-aria-1.2/#aria-hidden)
 - [aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)
 - [aria-live](https://www.w3.org/TR/wai-aria-1.2/#aria-live)
+- [aria-owns](https://www.w3.org/TR/wai-aria-1.2/#aria-owns)

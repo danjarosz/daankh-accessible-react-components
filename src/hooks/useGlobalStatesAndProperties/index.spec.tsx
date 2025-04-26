@@ -625,9 +625,79 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-live']).toBe('polite');
     });
 
+    test('GIVEN THAT live is undefined WHEN useGlobalStatesAndProperties returns value THEN aria-live = undefined"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          live: undefined,
+        }),
+      );
+      expect(result.current['aria-live']).toBe(undefined);
+    });
+
     test('GIVEN THAT live not provided WHEN useGlobalStatesAndProperties returns value THEN aria-live = undefined"', () => {
       const { result } = renderHook(() => useGlobalStatesAndProperties({}));
       expect(result.current['aria-live']).toBe(undefined);
+    });
+  });
+
+  describe('aria-owns', () => {
+    test('GIVEN THAT owns = "foo" WHEN useGlobalStatesAndProperties returns value THEN aria-owns="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          owns: 'foo',
+        }),
+      );
+      expect(result.current['aria-owns']).toBe('foo');
+    });
+
+    test('GIVEN THAT owns = "foo bar" WHEN useGlobalStatesAndProperties returns value THEN aria-owns="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          owns: 'foo bar',
+        }),
+      );
+      expect(result.current['aria-owns']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT owns = ["foo"] WHEN useGlobalStatesAndProperties returns value THEN aria-owns="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          owns: ['foo'],
+        }),
+      );
+      expect(result.current['aria-owns']).toBe('foo');
+    });
+
+    test('GIVEN THAT owns = ["foo", "bar"] WHEN useGlobalStatesAndProperties returns value THEN aria-owns="foo bar"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          owns: ['foo', 'bar'],
+        }),
+      );
+      expect(result.current['aria-owns']).toBe('foo bar');
+    });
+
+    test('GIVEN THAT owns = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-owns=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          owns: undefined,
+        }),
+      );
+      expect(result.current['aria-owns']).toBe(undefined);
+    });
+
+    test('GIVEN THAT owns is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-owns=undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-owns']).toBe(undefined);
+    });
+
+    test('GIVEN THAT owns is an empty array WHEN useGlobalStatesAndProperties returns value THEN aria-owns=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          owns: [],
+        }),
+      );
+      expect(result.current['aria-owns']).toBe(undefined);
     });
   });
 });

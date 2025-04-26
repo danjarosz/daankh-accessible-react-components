@@ -27,6 +27,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-hidden': boolean | undefined;
   'aria-keyshortcuts': string | undefined;
   'aria-live': TAriaLiveToken | undefined;
+  'aria-owns': string | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -42,6 +43,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   hidden?: boolean;
   keyshortcuts?: string;
   live?: TAriaLiveToken;
+  owns?: string | string[];
 }
 
 /**
@@ -61,6 +63,7 @@ export default function useGlobalStatesAndProperties({
   hidden,
   keyshortcuts,
   live,
+  owns,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -88,6 +91,7 @@ export default function useGlobalStatesAndProperties({
   const [ariaLive, setAriaLive] = useState<TAriaLiveToken | undefined>(
     undefined,
   );
+  const [ariaOwns, setAriaOwns] = useState<string | undefined>(undefined);
 
   // aria-atomic
   useEffect(() => {
@@ -229,6 +233,23 @@ export default function useGlobalStatesAndProperties({
     }
   }, [live]);
 
+  // aria-owns
+  useEffect(() => {
+    if (typeof owns === 'string') {
+      setAriaOwns(owns);
+    } else if (typeof owns === 'object' && Array.isArray(owns)) {
+      if (!owns.length) {
+        setAriaOwns(undefined);
+        return;
+      }
+      setAriaOwns(owns.join(' '));
+    } else {
+      setAriaOwns(undefined);
+    }
+  }, [owns]);
+
+  // TODO check out to not return undefined values at all
+
   // RETURN
   return {
     'aria-atomic': ariaAtomic,
@@ -243,5 +264,6 @@ export default function useGlobalStatesAndProperties({
     'aria-hidden': ariaHidden,
     'aria-keyshortcuts': ariaKeyshortcuts,
     'aria-live': ariaLive,
+    'aria-owns': ariaOwns,
   };
 }
