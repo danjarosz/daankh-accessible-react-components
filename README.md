@@ -19,7 +19,8 @@ The whole job is based on the given documents:
 
 ## Documentation
 
-Under construction...
+[Documentation page](https://daankh-accessible-react-components-documentation.vercel.app/starter-topic.html). This
+package is very limited for now, but along implementing new functionalities, the documentation will grow up.
 
 ## Deployment
 
