@@ -105,7 +105,7 @@ Documentation.
 
 ## Resources:
 
-The best place to know how to use each aria-* attribute.
+The best place to know how to use each aria-\* attribute.
 
 - [Global state and properties description](https://www.w3.org/TR/wai-aria-1.2/#global_states)
 - [aria-atomic](https://www.w3.org/TR/wai-aria-1.2/#aria-atomic)
