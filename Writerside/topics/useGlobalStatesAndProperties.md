@@ -126,4 +126,11 @@ The best place to know how to use each aria-* attribute.
 
 ## Deprecated global state and property attributes
 
-- [aria-]()
+In general, these are more role-specific now
+
+- [aria-disabled](https://www.w3.org/TR/wai-aria-1.2/#aria-disabled)
+- [aria-errormessage](https://www.w3.org/TR/wai-aria-1.2/#aria-errormessage)
+- [aria-haspopup](https://www.w3.org/TR/wai-aria-1.2/#aria-haspopup)
+- [aria-invalid](https://www.w3.org/TR/wai-aria-1.2/#aria-invalid)
+- [aria-label](https://www.w3.org/TR/wai-aria-1.2/#aria-label)
+- [aria-labelledby](https://www.w3.org/TR/wai-aria-1.2/#aria-labelledby)
