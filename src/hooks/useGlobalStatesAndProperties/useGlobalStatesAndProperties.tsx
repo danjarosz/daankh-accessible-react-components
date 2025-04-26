@@ -36,6 +36,7 @@ export interface IUseGlobalStatesAndProperties {
   'aria-live': TAriaLiveToken | undefined;
   'aria-owns': string | undefined;
   'aria-relevant': TAriaRelevantToken | undefined;
+  'aria-roledescription': string | undefined;
 }
 
 export interface IUseGlobalStatesAndPropertiesProps {
@@ -53,6 +54,7 @@ export interface IUseGlobalStatesAndPropertiesProps {
   live?: TAriaLiveToken;
   owns?: string | string[];
   relevant?: TAriaRelevantToken;
+  roledescription?: string;
 }
 
 /**
@@ -74,6 +76,7 @@ export default function useGlobalStatesAndProperties({
   live,
   owns,
   relevant,
+  roledescription,
 }: IUseGlobalStatesAndPropertiesProps): IUseGlobalStatesAndProperties {
   const [ariaAtomic, setAriaAtomic] = useState<boolean | undefined>(undefined);
   const [ariaBusy, setAriaBusy] = useState<boolean | undefined>(undefined);
@@ -104,6 +107,9 @@ export default function useGlobalStatesAndProperties({
   const [ariaOwns, setAriaOwns] = useState<string | undefined>(undefined);
   const [ariaRelevant, setAriaRelevant] = useState<
     TAriaRelevantToken | undefined
+  >(undefined);
+  const [ariaRoledescription, setAriaRoleDescription] = useState<
+    string | undefined
   >(undefined);
 
   // aria-atomic
@@ -270,6 +276,18 @@ export default function useGlobalStatesAndProperties({
     }
   }, [relevant]);
 
+  // aria-roledescription
+  useEffect(() => {
+    if (
+      typeof roledescription === 'string' &&
+      Boolean(roledescription.trim())
+    ) {
+      setAriaRoleDescription(roledescription);
+    } else {
+      setAriaRoleDescription(undefined);
+    }
+  }, [roledescription]);
+
   // TODO check out to not return undefined values at all
 
   // RETURN
@@ -288,5 +306,6 @@ export default function useGlobalStatesAndProperties({
     'aria-live': ariaLive,
     'aria-owns': ariaOwns,
     'aria-relevant': ariaRelevant,
+    'aria-roledescription': ariaRoledescription,
   };
 }

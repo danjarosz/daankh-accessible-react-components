@@ -761,4 +761,47 @@ describe('useGlobalStatesAndProperties', () => {
       expect(result.current['aria-relevant']).toBe(undefined);
     });
   });
+
+  describe('aria-roledescription', () => {
+    test('GIVEN THAT roledescription = "foo" WHEN useGlobalStatesAndProperties returns value THEN aria-roledescription="foo"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          roledescription: 'foo',
+        }),
+      );
+      expect(result.current['aria-roledescription']).toBe('foo');
+    });
+
+    test('GIVEN THAT roledescription = "" WHEN useGlobalStatesAndProperties returns value THEN aria-roledescription= undefined"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          roledescription: '',
+        }),
+      );
+      expect(result.current['aria-roledescription']).toBe(undefined);
+    });
+
+    test('GIVEN THAT roledescription = "     " WHEN useGlobalStatesAndProperties returns value THEN aria-roledescription= undefined"', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          roledescription: '    ',
+        }),
+      );
+      expect(result.current['aria-roledescription']).toBe(undefined);
+    });
+
+    test('GIVEN THAT roledescription = undefined WHEN useGlobalStatesAndProperties returns value THEN aria-roledescription=undefined', () => {
+      const { result } = renderHook(() =>
+        useGlobalStatesAndProperties({
+          roledescription: undefined,
+        }),
+      );
+      expect(result.current['aria-roledescription']).toBe(undefined);
+    });
+
+    test('GIVEN THAT roledescription is not provided WHEN useGlobalStatesAndProperties returns value THEN aria-roledescription=undefined', () => {
+      const { result } = renderHook(() => useGlobalStatesAndProperties({}));
+      expect(result.current['aria-roledescription']).toBe(undefined);
+    });
+  });
 });

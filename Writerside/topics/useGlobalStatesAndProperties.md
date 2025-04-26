@@ -30,6 +30,7 @@ IUseGlobalStatesAndPropertiesProps {
   live?: 'assertive' | 'off' | 'polite';
   owns?: string | string[];
   relevant?: 'additions' | 'additions text' | 'all' | 'removals' | 'text';
+  roledescription?: string;
 }
 </code-block>
 
@@ -58,6 +59,7 @@ IUseGlobalStatesAndPropertiesProps {
 - `controls?: string | string[]` - list od IDs
 - `relevant?: 'additions' | 'additions text' | 'all' | 'removals' | 'text'` - this is about presenting changes by
   assistive technologies.
+- `roledescription?: string` - aria-role description provided by an author
 
 ## Result Schema
 
@@ -75,6 +77,7 @@ interface IUseGlobalStatesAndProperties {
   'aria-keyshortcuts': string | undefined;
   'aria-live': 'assertive' | 'off' | 'polite' | undefined
   'aria-owns': string | undefined
+  'aria-roledescription': string | undefined
 }
 </code-block>
 
@@ -119,3 +122,8 @@ The best place to know how to use each aria-* attribute.
 - [aria-live](https://www.w3.org/TR/wai-aria-1.2/#aria-live)
 - [aria-owns](https://www.w3.org/TR/wai-aria-1.2/#aria-owns)
 - [aria-relevant](https://www.w3.org/TR/wai-aria-1.2/#aria-relevant)
+- [aria-roledescription](https://www.w3.org/TR/wai-aria-1.2/#aria-roledescription)
+
+## Deprecated global state and property attributes
+
+- [aria-]()
