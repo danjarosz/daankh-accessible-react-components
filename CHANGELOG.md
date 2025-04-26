@@ -1,5 +1,15 @@
 # daankh-npm-typescript-package
 
+## 0.1.0
+
+### Minor Changes
+
+- 21f4d30: Introduce useGlobalStateAndProperties hook, documentation and update README.md
+
+### Patch Changes
+
+- b654542: Install initial dependencies
+
 ## 0.0.7
 
 ### Patch Changes
